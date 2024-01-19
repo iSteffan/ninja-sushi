@@ -1,17 +1,30 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+
   theme: {
+    fontFamily: {
+      inter: ['Inter', 'sans-serif'],
+    },
+    screens: {
+      sm: '367px',
+      md: '768px',
+      lg: '1576px',
+    },
+    colors: {
+      primary: '#1D1D1F',
+      'secondary-gray': '#686870',
+      'accent-orange': '#F63',
+      'accent-green': '#00CC2D',
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      backgroundColor: {
+        main: '#FFF',
+        secondary: 'D2D2D7',
+        'btn-green': '#00CC2D',
+        'accent-hit': '#FBDCD5',
+        'accent-new': '#CCF5D5',
       },
     },
   },
