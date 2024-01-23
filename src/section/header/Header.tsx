@@ -13,7 +13,7 @@ const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
-    <header className="py-[8px] px-[12px] mx-auto bg-main-white rounded-lg max-md:max-w-[367px] md:py-[16px] md:px-[24px]">
+    <header className="py-[8px] px-[12px] mx-auto bg-main-white rounded-lg max-md:max-w-[367px] md:py-[16px] md:px-[24px] max-w-[1576px]">
       <div className="flex justify-between">
         <Image
           src={isMobile ? logoMobile : logoDesktop}
@@ -22,16 +22,16 @@ const Header = () => {
           height={isMobile ? 28 : 48}
         />
 
-        <div className="flex items-center">
+        <div className="flex items-center justify-between max-w-[75px] md:max-w-[102px] w-full">
           <Image
             src={isMobile ? flagMobile : flagDesktop}
             alt="flag"
             width={isMobile ? 16 : 20}
             height={isMobile ? 16 : 16}
           />
-          <p className="text-xs ml-[8px] mr-[12px]">Київ</p>
+          <p className="text-xs md:text-sm">Київ</p>
           <Popover className="relative flex">
-            <Popover.Button className="text-xs">UA</Popover.Button>
+            <Popover.Button className="text-xs md:text-sm">UA</Popover.Button>
 
             <Transition
               as={Fragment}

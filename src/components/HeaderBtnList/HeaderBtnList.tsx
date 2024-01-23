@@ -28,7 +28,8 @@ const HeaderBtnList = () => {
         </button>
       </li>
       <li className="max-md:hidden">
-        <button className="md:p-[16px] p-[10px] rounded-xl border-[1px] border-br-gray ">
+        <button className="md:p-[16px] p-[10px] rounded-xl border-[1px] border-br-gray flex">
+          Кошик
           <Image src={cart} alt="bell" width={24} height={24} />
         </button>
       </li>
