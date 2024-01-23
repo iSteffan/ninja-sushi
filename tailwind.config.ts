@@ -9,7 +9,7 @@ const config: Config = {
     },
     fontSize: {
       xs: ['12px', '16px'],
-      // sm: ['14px', '20px'],
+      sm: ['16px', '24px'],
       // base: ['16px', '19.5px'],
       // lg: ['18px', '21.94px'],
       // xl: ['20px', '24.38px'],
@@ -28,6 +28,7 @@ const config: Config = {
       'secondary-gray': '#686870',
       'accent-orange': '#F63',
       'accent-green': '#00CC2D',
+      'br-gray': '#D2D2D7',
     },
     extend: {
       backgroundColor: {

@@ -2,8 +2,10 @@ import bell from './bell.svg';
 import user from './user.svg';
 import favorite from './favorite.svg';
 import menu from './menu.svg';
+import cart from './cart.svg';
 
-import flag from './ua-flag.svg';
+import flagMobile from './ua-flag.svg';
+import flagDesktop from './flag-desktop.svg';
 
 import logoMobile from './logo-mobile.svg';
 import logoDesktop from './logo-desktop.svg';
@@ -20,7 +22,9 @@ export {
   user,
   favorite,
   menu,
-  flag,
+  cart,
+  flagMobile,
+  flagDesktop,
   logoMobile,
   logoDesktop,
   category1,
