@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import HeaderBtnList from '@/components/HeaderBtnList/HeaderBtnList';
+import HeaderNav from '@/components/HeaderNav/HeaderNav';
 
 const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -50,7 +51,7 @@ const Header = () => {
             </Transition>
           </Popover>
         </div>
-
+        <HeaderNav />
         <HeaderBtnList />
       </div>
     </header>

@@ -3,6 +3,7 @@ import user from './user.svg';
 import favorite from './favorite.svg';
 import menu from './menu.svg';
 import cart from './cart.svg';
+import phone from './phone.svg';
 
 import flagMobile from './ua-flag.svg';
 import flagDesktop from './flag-desktop.svg';
@@ -22,6 +23,7 @@ export {
   user,
   favorite,
   menu,
+  phone,
   cart,
   flagMobile,
   flagDesktop,
