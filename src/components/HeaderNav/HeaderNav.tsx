@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const HeaderNav = () => {
   return (
-    <nav className="max-md:hidden flex items-center max-w-[644px] w-full">
+    <nav className="max-lg:hidden flex items-center max-w-[644px] w-full">
       <ul className="flex justify-between w-full">
         <li>
           <Link href="/" className="text-sm">
