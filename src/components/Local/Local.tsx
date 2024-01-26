@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import { flagMobile, flagDesktop, closeLocal } from '@/assets/icons/index';
 import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
@@ -8,8 +8,14 @@ import { useMediaQuery } from 'react-responsive';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
+type Language = 'UA' | 'EN' | 'DE';
+
+const languageArr = ['UA', 'EN', 'DE'];
+
 const Local = () => {
   const isMobile = useMediaQuery({ maxWidth: 1575 });
+
+  const [language, setLanguage] = useState<Language>('UA');
 
   return (
     <div className="flex items-center justify-between max-w-[75px] lg:max-w-[102px] w-full">
@@ -21,7 +27,7 @@ const Local = () => {
       />
       <p className="text-xs lg:text-sm">Київ</p>
       <Popover className="relative flex">
-        <Popover.Button className="text-xs lg:text-sm">UA</Popover.Button>
+        <Popover.Button className="text-xs lg:text-sm w-[24px]">{language}</Popover.Button>
 
         <Transition
           as={Fragment}
@@ -41,21 +47,19 @@ const Local = () => {
 
                 <p className="text-menu-gray mb-[14px]">Виберіть мову</p>
                 <ul className="flex gap-[12px] flex-wrap">
-                  <li>
-                    <button type="button" className="p-[12px] bg-local-gray rounded-xl w-[93px]">
-                      UA
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" className="p-[12px] bg-local-gray rounded-xl w-[93px]">
-                      EN
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" className="p-[12px] bg-local-gray rounded-xl w-[93px]">
-                      DE
-                    </button>
-                  </li>
+                  {languageArr.map(lang => {
+                    return (
+                      <li key={lang}>
+                        <button
+                          type="button"
+                          className="p-[12px] bg-local-gray rounded-xl w-[93px]"
+                          onClick={() => setLanguage(lang)}
+                        >
+                          {lang}
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>
