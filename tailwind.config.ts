@@ -29,6 +29,7 @@ const config: Config = {
       'accent-orange': '#F63',
       'accent-green': '#00CC2D',
       'br-gray': '#D2D2D7',
+      'menu-gray': '#9E9E9E',
     },
     extend: {
       backgroundColor: {
@@ -37,6 +38,7 @@ const config: Config = {
         'btn-green': '#00CC2D',
         'accent-hit': '#FBDCD5',
         'accent-new': '#CCF5D5',
+        'local-gray': '#F5F5F7',
       },
     },
   },

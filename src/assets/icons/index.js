@@ -7,6 +7,7 @@ import phone from './phone.svg';
 
 import flagMobile from './ua-flag.svg';
 import flagDesktop from './flag-desktop.svg';
+import closeLocal from './close-local.svg';
 
 import logoMobile from './logo-mobile.svg';
 import logoDesktop from './logo-desktop.svg';
@@ -25,6 +26,7 @@ export {
   menu,
   phone,
   cart,
+  closeLocal,
   flagMobile,
   flagDesktop,
   logoMobile,
