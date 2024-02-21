@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { flagMobile, flagDesktop, closeLocal } from '@/assets/icons/index';
 import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
-
+import { useTranslation } from 'react-i18next';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
