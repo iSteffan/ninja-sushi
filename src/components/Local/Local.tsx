@@ -53,7 +53,7 @@ const Local = () => {
                         <button
                           type="button"
                           className="p-[12px] bg-local-gray rounded-xl w-[93px]"
-                          onClick={() => setLanguage(lang as Language)}
+                          onClick={() => setLanguage(lang)}
                         >
                           {lang}
                         </button>
