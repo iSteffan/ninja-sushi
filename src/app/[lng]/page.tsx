@@ -1,7 +1,5 @@
-import { useTranslation } from '../i18n';
+import Image from 'next/image';
 
-export default async function Home({ params: { lng } }: { params: { lng: string } }) {
-  const { t } = await useTranslation(lng);
-
+export default function Home() {
   return <main className="max-w-[1576px]"></main>;
 }
