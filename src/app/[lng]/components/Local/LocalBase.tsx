@@ -1,6 +1,28 @@
+// import Link from 'next/link';
+// import { Trans } from 'react-i18next/TransWithoutContext';
+// import { languages } from '../../../i18n/settings';
+
+// export const FooterBase = ({ t, lng }) => {
+//   return (
+//     <footer style={{ marginTop: 50 }}>
+//       <Trans i18nKey="languageSwitcher" t={t}>
+//         Switch from <strong>{{ lng }}</strong> to:{' '}
+//       </Trans>
+//       {languages
+//         .filter(l => lng !== l)
+//         .map((l, index) => {
+//           return (
+//             <span key={l}>
+//               {index > 0 && ' or '}
+//               <Link href={`/${l}`}>{l}</Link>
+//             </span>
+//           );
+//         })}
+//     </footer>
+//   );
+// };
 'use client';
 import Link from 'next/link';
-
 import { useState } from 'react';
 import { flagMobile, flagDesktop, closeLocal } from '@/assets/icons/index';
 import Image from 'next/image';
@@ -9,15 +31,15 @@ import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { useTranslation } from '@/app/i18n/client';
 
+type Language = 'UA' | 'EN' | 'DE';
+
 const languageArr = ['UA', 'EN', 'DE'];
 
-export interface LocalProps {
-  lng: string;
-}
-
-const Local = ({ lng }: LocalProps) => {
+export const LocalBase = ({ t, lng }) => {
   const isMobile = useMediaQuery({ maxWidth: 1575 });
   const { t } = useTranslation(lng);
+
+  const [language, setLanguage] = useState<Language>('UA');
 
   return (
     <div className="flex items-center justify-between max-w-[75px] lg:max-w-[102px] w-full">
@@ -27,9 +49,9 @@ const Local = ({ lng }: LocalProps) => {
         width={isMobile ? 16 : 20}
         height={isMobile ? 16 : 16}
       />
-      <p className="text-xs lg:text-sm">{t('city')}</p>
+      <p className="text-xs lg:text-sm">Київ</p>
       <Popover className="relative flex">
-        <Popover.Button className="text-xs lg:text-sm w-[24px]">{lng.toUpperCase()}</Popover.Button>
+        <Popover.Button className="text-xs lg:text-sm w-[24px]">{language}</Popover.Button>
 
         <Transition
           as={Fragment}
@@ -47,13 +69,12 @@ const Local = ({ lng }: LocalProps) => {
                   <Image src={closeLocal} alt="close icon" width={24} height={24} />
                 </Popover.Button>
 
-                <p className="text-menu-gray mb-[14px]">{t('choose-language')}</p>
+                <p className="text-menu-gray mb-[14px]">Виберіть мову</p>
                 <ul className="flex gap-[12px] flex-wrap">
                   {languageArr.map(lang => {
                     return (
                       <li key={lang}>
-                        <Link href={`/${lang.toLowerCase()}`}>{lang}</Link>
-
+                        <Link href={`/${lang}`}>{lang}</Link>
                         {/* <button
                           type="button"
                           className="p-[12px] bg-local-gray rounded-xl w-[93px]"
@@ -73,5 +94,3 @@ const Local = ({ lng }: LocalProps) => {
     </div>
   );
 };
-
-export default Local;

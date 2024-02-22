@@ -1,29 +1,38 @@
+'use client';
+
 import { phone } from '@/assets/icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '@/app/i18n/client';
 
-const HeaderNav = () => {
+export interface HeaderNavProps {
+  lng: string;
+}
+
+const HeaderNav = ({ lng }: HeaderNavProps) => {
+  const { t } = useTranslation(lng);
+
   return (
     <nav className="max-lg:hidden flex items-center max-w-[644px] w-full">
       <ul className="flex justify-between w-full">
         <li>
           <Link href="/" className="text-sm">
-            Головна
+            {t('main')}
           </Link>
         </li>
         <li>
           <Link href="/delivery" className="text-sm">
-            Доставка
+            {t('delivery')}
           </Link>
         </li>
         <li>
           <Link href="/about-us" className="text-sm">
-            Про нас
+            {t('about-us')}
           </Link>
         </li>
         <li>
           <Link href="/news" className="text-sm">
-            Новини
+            {t('news')}
           </Link>
         </li>
         <li>

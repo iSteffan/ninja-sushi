@@ -1,4 +1,9 @@
 {
-  "title": "Привіт",
-  "to-second-page": "Zur zweiten Seite"
+  "city": "Київ",
+  "choose-language": "Виберіть мову",
+  "main": "Головна",
+  "delivery": "Доставка",
+  "about-us": "Про нас",
+  "news": "Новини",
+  "cart": "Кошик"
 }

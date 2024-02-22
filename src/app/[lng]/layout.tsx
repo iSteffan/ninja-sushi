@@ -31,8 +31,7 @@ export default async function RootLayout({ children, params: { lng } }: LayoutPr
     <html lang={lng} dir={dir(lng)}>
       <head />
       <body className={inter.className}>
-        <h1>{t('title')}</h1>
-        <Header />
+        <Header lng={lng} />
         {children}
       </body>
     </html>

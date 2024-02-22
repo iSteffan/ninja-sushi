@@ -1,12 +1,17 @@
+'use client';
+
 import { bell, cart, favorite, menu, user } from '@/assets/icons';
 import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
-
-const HeaderBtnList = () => {
+import { useTranslation } from '@/app/i18n/client';
+export interface HeaderBtnListProps {
+  lng: string;
+}
+const HeaderBtnList = ({ lng }: HeaderBtnListProps) => {
   const isMobile = useMediaQuery({ maxWidth: 1575 });
+  const { t } = useTranslation(lng);
 
   return (
-    // <ul className="flex gap-[4px] md:gap-[12px]">
     <ul className="flex max-w-[172px] lg:max-w-[330px] w-full justify-between">
       <li>
         <button
@@ -45,7 +50,7 @@ const HeaderBtnList = () => {
           type="button"
           className="md:p-[16px] p-[10px] rounded-xl border-[1px] border-br-gray text-sm flex gap-[8px]"
         >
-          Кошик
+          {t('cart')}
           <Image src={cart} alt="bell" width={24} height={24} />
         </button>
       </li>
