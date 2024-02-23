@@ -56,7 +56,7 @@ const Local = ({ lng }: LocalProps) => {
                         {/* <button
                           type="button"
                           className="p-[12px] bg-local-gray rounded-xl w-[93px]"
-                          onClick={() => setLanguage(lang)}
+                          onClick={() => setLanguage(lang as Language)}
                         >
                           {lang}
                         </button> */}
