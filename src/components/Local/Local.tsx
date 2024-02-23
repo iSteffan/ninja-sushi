@@ -1,33 +1,28 @@
 'use client';
 
-import { useState } from 'react';
-import { flagMobile, flagDesktop, closeLocal } from '@/assets/icons/index';
+import Link from 'next/link';
 import Image from 'next/image';
-import { useMediaQuery } from 'react-responsive';
-
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
-
-type Language = 'UA' | 'EN' | 'DE';
+import { useTranslation } from '@/app/i18n/client';
+import { flagMobile, flagDesktop, closeLocal } from '@/assets/icons/index';
 
 const languageArr = ['UA', 'EN', 'DE'];
 
-const Local = () => {
-  const isMobile = useMediaQuery({ maxWidth: 1575 });
+export interface LocalProps {
+  lng: string;
+}
 
-  const [language, setLanguage] = useState<Language>('UA');
+const Local = ({ lng }: LocalProps) => {
+  const { t } = useTranslation(lng);
 
   return (
     <div className="flex items-center justify-between max-w-[75px] lg:max-w-[102px] w-full">
-      <Image
-        src={isMobile ? flagMobile : flagDesktop}
-        alt="flag"
-        width={isMobile ? 16 : 20}
-        height={isMobile ? 16 : 16}
-      />
-      <p className="text-xs lg:text-sm">Київ</p>
+      <Image src={flagMobile} alt="flag" width={16} height={16} className="lg:hidden" />
+      <Image src={flagDesktop} alt="flag" width={20} height={16} className="max-lg:hidden" />
+      <p className="text-xs lg:text-sm">{t('city')}</p>
       <Popover className="relative flex">
-        <Popover.Button className="text-xs lg:text-sm w-[24px]">{language}</Popover.Button>
+        <Popover.Button className="text-xs lg:text-sm w-[24px]">{lng.toUpperCase()}</Popover.Button>
 
         <Transition
           as={Fragment}
@@ -42,21 +37,29 @@ const Local = () => {
             <div className="w-screen max-w-[238px] flex-auto overflow-hidden rounded-3xl bg-white text-sm">
               <div className="p-[20px] bg-main-white rounded-xl">
                 <Popover.Button className="absolute right-8 top-[15px] rounded-lg bg-local-gray p-[4px]">
-                  <Image src={closeLocal} alt="close icon" width={24} height={24} />
+                  <Image
+                    src={closeLocal}
+                    alt="close icon"
+                    width={24}
+                    height={24}
+                    style={{ width: 24, height: 24 }}
+                  />
                 </Popover.Button>
 
-                <p className="text-menu-gray mb-[14px]">Виберіть мову</p>
+                <p className="text-menu-gray mb-[14px]">{t('choose-language')}</p>
                 <ul className="flex gap-[12px] flex-wrap">
                   {languageArr.map(lang => {
                     return (
                       <li key={lang}>
-                        <button
+                        <Link href={`/${lang.toLowerCase()}`}>{lang}</Link>
+
+                        {/* <button
                           type="button"
                           className="p-[12px] bg-local-gray rounded-xl w-[93px]"
                           onClick={() => setLanguage(lang)}
                         >
                           {lang}
-                        </button>
+                        </button> */}
                       </li>
                     );
                   })}
