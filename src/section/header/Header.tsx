@@ -13,14 +13,24 @@ export interface HeaderProps {
 const Header = ({ lng }: HeaderProps) => {
   return (
     <header className="py-[8px] px-[12px] mx-auto bg-main-white rounded-lg max-lg:max-w-[367px] lg:py-[16px] lg:px-[24px] max-w-[1576px]">
-      <div className="flex justify-between">
-        <Image src={logoMobile} alt="Mobile logo" width={67} height={28} className="lg:hidden" />
+      <div className="flex justify-between items-center">
+        <Image
+          src={logoMobile}
+          alt="Mobile logo"
+          width={67}
+          height={28}
+          className="lg:hidden"
+          style={{ width: 67, height: 28 }}
+          priority={true}
+        />
         <Image
           src={logoDesktop}
           alt="Desktop logo"
           width={214}
           height={48}
           className="max-lg:hidden"
+          style={{ width: 214, height: 48 }}
+          priority={false}
         />
         <Local lng={lng} />
         <HeaderNav lng={lng} />
