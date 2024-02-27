@@ -25,6 +25,7 @@ const config: Config = {
     },
     colors: {
       primary: '#1D1D1F',
+      'secondary-white': '#FFFFFF',
       'secondary-gray': '#686870',
       'accent-orange': '#F63',
       'accent-green': '#00CC2D',
@@ -39,6 +40,7 @@ const config: Config = {
         'accent-hit': '#FBDCD5',
         'accent-new': '#CCF5D5',
         'local-gray': '#F5F5F7',
+        'accent-orange': '#F63',
       },
     },
   },

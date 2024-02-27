@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Fragment } from 'react';
@@ -36,13 +37,14 @@ const Local = ({ lng }: LocalProps) => {
           <Popover.Panel className="absolute left-1/2 z-10 max-lg:mt-10 mt-16 flex w-screen max-w-max -translate-x-1/2 px-4">
             <div className="w-screen max-w-[238px] flex-auto overflow-hidden rounded-3xl bg-white text-sm">
               <div className="p-[20px] bg-main-white rounded-xl">
-                <Popover.Button className="absolute right-8 top-[15px] rounded-lg bg-local-gray p-[4px]">
+                <Popover.Button className="group absolute right-8 top-[15px] rounded-lg bg-local-gray p-[4px] hover:bg-accent-orange transition duration-150 ease-out">
                   <Image
                     src={closeLocal}
                     alt="close icon"
                     width={24}
                     height={24}
-                    style={{ width: 24, height: 24 }}
+                    // style={{ width: 24, height: 24 }}
+                    className="w-[24px] h-[24px] fill-red-600"
                   />
                 </Popover.Button>
 
@@ -51,15 +53,17 @@ const Local = ({ lng }: LocalProps) => {
                   {languageArr.map(lang => {
                     return (
                       <li key={lang}>
-                        <Link href={`/${lang.toLowerCase()}`}>{lang}</Link>
-
-                        {/* <button
-                          type="button"
-                          className="p-[12px] bg-local-gray rounded-xl w-[93px]"
-                          onClick={() => setLanguage(lang as Language)}
+                        <Link
+                          href={`/${lang.toLowerCase()}`}
+                          className={clsx(
+                            'p-[12px] rounded-xl w-[93px]',
+                            lng.toUpperCase() === lang
+                              ? 'bg-accent-orange text-secondary-white'
+                              : 'bg-local-gray hover:bg-accent-orange hover:text-secondary-white transition duration-150 ease-out'
+                          )}
                         >
                           {lang}
-                        </button> */}
+                        </Link>
                       </li>
                     );
                   })}
